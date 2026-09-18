@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>从序时账生成现金流量表 | 懂点财税法</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-nav="fin">
+
+<header id="site-header"></header>
+
+<main class="wrap wrap-narrow">
+  <div id="article-root" data-slug="cashflow-ledger-build"></div>
+
+  <div id="article-body-src" hidden>
+
+    <p>
+      现金流量表大概是三张主表里最费手工的一张。资产负债表和利润表能从科目余额表直接映射，
+      现金流量表还得判断每笔钱的来龙去脉。
+    </p>
+
+    <p>
+      这篇讲我自己的思路：哪些环节可以规则化，哪些必须人工判断，
+      以及在自动化过程中最容易踩的坑。
+    </p>
+
+    <h2>一、整体框架：两条路同时走</h2>
+
+    <p>比较稳的做法是<strong>直接法做正表、间接法做补充资料，然后互相验证</strong>：</p>
+
+    <table>
+      <thead>
+        <tr><th>方法</th><th>数据来源</th><th>适用</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>直接法</strong></td>
+          <td>序时账中涉及货币资金科目的对方科目</td>
+          <td>正表「经营活动现金流入/流出」各明细项</td>
+        </tr>
+        <tr>
+          <td><strong>间接法</strong></td>
+          <td>净利润 + 非付现项目调整 + 营运资本变动</td>
+          <td>补充资料「将净利润调节为经营活动现金流」</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      两条路算出来的「经营活动产生的现金流量净额」应当一致。
+      <strong>不一致就是有线索</strong>——要么分类错了，要么有未识别的现金等价物变动。
+    </p>
+
+    <h2>二、直接法：核心是「找对方科目」</h2>
+
+    <p>
+      基本逻辑很简单：凡是序时账中有一方是「库存现金 / 银行存款 / 其他货币资金」的分录，
+      取<strong>对方的科目</strong>，按对方科目归集现金流类别。
+    </p>
+
+    <p>关键判断在于<strong>对方科目怎么映射到现金流项目</strong>：</p>
+
+    <ul>
+      <li>
+        <strong>可以规则化的部分</strong>：
+        如「应收账款 / 主营业务收入」→ 销售商品、提供劳务收到的现金；
+        「应付账款 / 原材料」→ 购买商品、接受劳务支付的现金；
+        「应付职工薪酬」→ 支付给职工以及为职工支付的现金。
+        这类对应关系明确，可以建映射表自动处理。
+      </li>
+      <li>
+        <strong>需要人工判断的部分</strong>：
+        同上但混合了非现金成分的分录、涉及往来科目对冲的分录、
+        以及一个科目同时出现在多类现金流中的情形（如「其他应付款」可能对应经营、投资、筹资）。
+      </li>
+    </ul>
+
+    <div class="callout callout-warn">
+      <span class="callout-title">最大的坑：净额法陷阱</span>
+      <p>
+        序时账里常见「应收账款 / 应收账款」这类对冲分录，
+        或者把不同性质的现金流量记在同一张凭证里。
+        自动化脚本如果不做拆分，会把这些金额<strong>整体漏掉或错配</strong>。
+        稳妥的做法是：先按「一笔分录能否被唯一归类」分成两组，
+        能归类的自动处理，不能归类的输出待判断清单人工处理。
+      </p>
+    </div>
+
+    <h2>三、间接法：调整项目的清单化</h2>
+
+    <p>间接法的逻辑是固定的，可以从净利润出发，逐项加减：</p>
+
+    <ol>
+      <li><strong>加回非付现费用</strong>：折旧、摊销、资产减值准备、预计负债等</li>
+      <li><strong>调整非经营损益</strong>：处置固定资产损益、财务费用中的利息、投资收益等</li>
+      <li><strong>调整营运资本变动</strong>：存货、经营性应收、经营性应付的增减</li>
+    </ol>
+
+    <p>
+      其中第三步最容易出错。<strong>注意区分经营性应收应付与其他应收应付</strong>——
+      如果「其他应收款」里挂的是股东借款，那它不属于经营活动；
+      但如果是备用金、押金，就可能属于。这一步的判断结果是没法靠规则穷举的。
+    </p>
+
+    <h2>四、做检查的四个动作</h2>
+
+    <p>自动化做完，我用这四个检查确认结果：</p>
+
+    <ol>
+      <li>
+        <strong>现金及现金等价物净增加额 = 期末 − 期初</strong>。
+        这条不成立，说明货币资金科目的期初期末与序时账不匹配。
+      </li>
+      <li>
+        <strong>直接法净额 = 间接法净额</strong>（经营活动）。
+        不相等时，先排查是否遗漏了非现金的经营活动项目。
+      </li>
+      <li>
+        <strong>三类活动净额合计 = 现金净增加额</strong>。
+        注意外币折算影响要单列。
+      </li>
+      <li>
+        <strong>与上年同期波动对比</strong>。
+        某项出现巨幅波动，要么确实发生了重大交易，要么就是分类错了。
+      </li>
+    </ol>
+
+    <div class="callout callout-info">
+      <span class="callout-title">效率上的实话</span>
+      <p>
+        自动化能覆盖大概 <strong>70%～80%</strong> 的分录，剩下 20% 的「待判断清单」
+        才是真正花时间的地方。所以设计工具时的目标不该是「全自动」，
+        而应该是<strong>把需要人工判断的部分清晰地拎出来，并且带上足够的上下文</strong>
+        （摘要、金额、对方科目、往来对象），让人能快速决策。
+        追求 100% 自动，往往在边界情形上出错，反而更费时间。
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="../assets/posts.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>

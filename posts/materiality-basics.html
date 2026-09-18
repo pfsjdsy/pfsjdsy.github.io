@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>审计重要性水平怎么定 | 懂点财税法</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-nav="fin">
+
+<header id="site-header"></header>
+
+<main class="wrap wrap-narrow">
+  <div id="article-root" data-slug="materiality-basics"></div>
+
+  <!-- 正文内容，由 main.js 提取后注入 -->
+  <div id="article-body-src" hidden>
+
+    <p>
+      重要性水平这玩意儿，教科书上的定义谁都会背，真到项目上要落一个数的时候，很多人就开始含糊。
+      这篇不讲定义，讲<strong>怎么算、怎么取整、怎么分配</strong>，以及在底稿里该怎么写才站得住。
+    </p>
+
+    <h2>一、先分清三档，别混着用</h2>
+
+    <p>
+      实务中容易出问题的地方，是把三档重要性当成一个东西反复套。
+      实际上它们各有各的用途，算错了会导致后续程序全跑偏。
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>档位</th><th>用途</th><th>通常取值关系</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>财务报表层次重要性</strong>（整体重要性）</td>
+          <td>判断报表整体是否存在重大错报</td>
+          <td>基准 × 比率</td>
+        </tr>
+        <tr>
+          <td><strong>实际执行的重要性</strong>（PM）</td>
+          <td>确定进一步审计程序的性质、时间安排和范围</td>
+          <td>整体重要性 × 50%～75%</td>
+        </tr>
+        <tr>
+          <td><strong>明显微小错报临界值</strong>（CTT）</td>
+          <td>低于此值无需累积的错报门槛</td>
+          <td>整体重要性 × 3%～5%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout-warn">
+      <span class="callout-title">口径提醒</span>
+      <p>
+        上表中的 50%～75% 和 3%～5%，属于<strong>实务惯例区间</strong>，
+        准则本身并未规定具体百分比。底稿里写的时候，务必说明是「依据项目风险评估确定的经验比例」，
+        而不是「准则规定」。这个区别在检查时很重要。
+      </p>
+    </div>
+
+    <h2>二、基准怎么选</h2>
+
+    <p>基准的选择要跟着「报表使用者最关心什么」走。常见的对应关系：</p>
+
+    <table>
+      <thead>
+        <tr><th>被审计单位特征</th><th>常用基准</th><th>经验比率区间</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>盈利稳定、以营利为目的的普通企业</td>
+          <td>利润总额 / 税前利润</td>
+          <td>5% ～ 10%</td>
+        </tr>
+        <tr>
+          <td>盈利波动大、微利或盈亏临界</td>
+          <td>营业收入</td>
+          <td>0.5% ～ 1%</td>
+        </tr>
+        <tr>
+          <td>资产密集型（如重资产制造、房地产）</td>
+          <td>资产总额</td>
+          <td>0.5% ～ 1%</td>
+        </tr>
+        <tr>
+          <td>非营利组织、事业单位</td>
+          <td>费用总额 / 收入总额</td>
+          <td>1% ～ 2%</td>
+        </tr>
+        <tr>
+          <td>以融资为主要目的的主体</td>
+          <td>净资产 / 所有者权益</td>
+          <td>1% ～ 5%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      国企、事业单位的专项审计，基准选择往往还要考虑<strong>委托方（国资监管机构）的关注点</strong>。
+      比如经济责任审计，监管口径可能更关注国有资产保值增值，此时净资产或资产总额会更有说服力。
+      <strong>基准选完要在底稿里写清理由</strong>，不能只写一个结果。
+    </p>
+
+    <h2>三、算完之后要不要取整</h2>
+
+    <p>
+      要，而且这是实务惯例。取整的目的是<strong>避免给读者「精确计算」的误导感</strong>，
+      同时也降低因基准微小变动导致重要性水平频繁跳动的麻烦。
+    </p>
+
+    <p>常见的取整习惯（<strong>同样属于实务惯例，非准则规定</strong>）：</p>
+
+    <ul>
+      <li>结果在 100 万以下：取到 <strong>万位</strong>，如 87.3 万 → <strong>87 万</strong></li>
+      <li>结果在 100 万～1000 万：取到 <strong>十万位</strong>，如 326 万 → <strong>330 万</strong></li>
+      <li>结果在 1000 万以上：取到 <strong>百万位</strong>，如 1,847 万 → <strong>1,800 万</strong></li>
+    </ul>
+
+    <p>取整方向一般是<strong>向下取整</strong>，或在就近档位中取较小值——宁可严一点。</p>
+
+    <h2>四、一个完整算例</h2>
+
+    <p>假设某制造业企业，税前利润 2,860 万元，营业收入 4.2 亿元，资产总额 5.6 亿元。</p>
+
+    <ol>
+      <li>
+        <strong>选基准</strong>：企业盈利稳定，以营利为目的 → 选税前利润 2,860 万元。
+      </li>
+      <li>
+        <strong>定比率</strong>：考虑行业竞争加剧、存在一定收入确认风险，取 5%（偏严）。
+      </li>
+      <li>
+        <strong>计算整体重要性</strong>：2,860 × 5% = 143 万元。
+        按万位以下取整 → <strong>143 万元</strong>（本身已是整数）。
+      </li>
+      <li>
+        <strong>实际执行重要性</strong>：考虑控制环境一般，取 50% → 143 × 50% = <strong>71.5 万元</strong>，
+        取整为 <strong>70 万元</strong>。
+      </li>
+      <li>
+        <strong>明显微小错报临界值</strong>：143 × 5% = 7.15 万元 → <strong>7 万元</strong>。
+      </li>
+    </ol>
+
+    <blockquote>
+      <p>
+        底稿里最好一句话把逻辑串起来：
+        「因被审计单位盈利稳定且以营利为目的，选取税前利润为基准；考虑收入确认存在固有风险，比率取 5%；
+        经计算财务报表层次重要性水平为 143 万元。实际执行重要性按 50% 确定，为 70 万元；
+        明显微小错报临界值按 5% 确定，为 7 万元。」
+      </p>
+    </blockquote>
+
+    <h2>五、集团审计里怎么分配</h2>
+
+    <p>
+      组成部分重要性不能简单按资产比例切。要考虑三个因素：<strong>组成部分的规模、风险特征、以及是否为重要组成部分</strong>。
+    </p>
+
+    <ul>
+      <li>
+        <strong>重要组成部分</strong>（规模大或存在特别风险）：单独确定组成部分重要性，
+        通常按该组成部分自身的基准计算，而不是简单按比例分。
+      </li>
+      <li>
+        <strong>非重要组成部分</strong>：由集团项目组统一分配，通常按比例切，
+        但要注意<strong>分配后的合计不得超过集团整体重要性</strong>。
+      </li>
+      <li>
+        <strong>汇总时的关键</strong>：各组成部分实际执行重要性的合计，与集团整体重要性之间的关系要有分析说明，
+        不能出现「分出去的合计比整体还大」这种硬伤。
+      </li>
+    </ul>
+
+    <div class="callout callout-info">
+      <span class="callout-title">一个常见的检查点</span>
+      <p>
+        集团项目组分配下去的组成部分重要性，如果某个组成部分分到的金额<strong>低于其自身明显微小错报临界值</strong>，
+        说明分配逻辑有问题，需要重新看该组成部分的风险评估。
+      </p>
+    </div>
+
+    <h2>六、收尾提醒</h2>
+
+    <p>最后三条，是我自己踩过或者见过别人踩的：</p>
+
+    <ol>
+      <li>
+        <strong>重要性水平不是算完就锁死的。</strong>审计过程中若发现新的情况（如重大差错、经营恶化），
+        需要重新评估并记录原因，底稿里要有修订痕迹。
+      </li>
+      <li>
+        <strong>不要把重要性水平当作「放行线」。</strong>低于重要性水平的错报也要看性质，
+        涉及舞弊迹象、管理层意图的，金额再小也要考虑。
+      </li>
+      <li>
+        <strong>底稿写的是判断逻辑，不是计算结果。</strong>
+        检查的人看的不是你会不会乘法，而是你为什么这么选。
+      </li>
+    </ol>
+
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="../assets/posts.js"></script>
+<script src="../assets/main.js"></script>
+</body>
+</html>
