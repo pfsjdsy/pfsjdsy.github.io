@@ -36,10 +36,10 @@
 
   /* ---------- 顶栏 / 页脚 ---------- */
   var NAV = [
-    { href: "index.html",   text: "首页",   key: "home" },
-    { href: "tax.html",     text: "税务",   key: "tax" },
-    { href: "law.html",     text: "法律",   key: "law" },
+    { href: "index.html",   text: "首页",   key: "home"},
     { href: "finance.html", text: "财务",   key: "fin" },
+    { href: "law.html",     text: "法律",   key: "law" }, 
+    { href: "tax.html",     text: "税务",   key: "tax" },
     { href: "share.html",   text: "转载",   key: "share" },
     { href: "about.html",   text: "关于",   key: "about" }
   ];
@@ -71,7 +71,7 @@
           "</div>" +
           '<div class="footer-col">' +
             "<h4>栏目</h4>" +
-            '<a href="tax.html">税务</a><a href="law.html">法律</a><a href="finance.html">财务</a><a href="share.html">转载</a>' +
+            '<a href="tax.html">财务</a><a href="law.html">法律</a><a href="finance.html">税法</a><a href="share.html">转载</a>' +
           "</div>" +
           '<div class="footer-col">' +
             "<h4>关于</h4>" +
