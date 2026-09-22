@@ -72,7 +72,7 @@
           "</div>" +
           '<div class="footer-col">' +
             "<h4>栏目</h4>" +
-            '<a href="finance.html">财务</a><a href="law.html">法律</a><a href="tax.html">税法</a><a href="share.html">转载</a><a href="tools.html">工具</a>' +
+            '<a href="finance.html">财务</a><a href="law.html">法律</a><a href="tax.html">税务</a><a href="share.html">转载</a><a href="tools.html">工具</a>' +
           "</div>" +
           '<div class="footer-col">' +
             "<h4>关于</h4>" +
