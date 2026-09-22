@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>询证函生成工具 | 懂点财税法</title>
+<meta name="description" content="免费审计小工具：导入往来明细表，按被询证单位批量生成询证函 Word 文档。数据全程本地处理。">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-nav="tools">
+
+<header id="site-header"></header>
+
+<main class="wrap wrap-narrow">
+  <div class="article">
+
+    <header class="article-header">
+      <span class="tag tag-fin">工具</span>
+      <h1>询证函生成工具</h1>
+      <div class="meta">
+        <span>版本 v1.0</span>
+        <span>Windows</span>
+        <span>免费</span>
+        <span>发布于 2026 年 9 月 22 日</span>
+      </div>
+    </header>
+
+    <div class="article-body">
+
+      <p>
+        一个给审计同行用的免费小工具：<strong>导入往来明细表，按被询证单位批量生成询证函 Word 文档</strong>。
+        把手工逐户复制粘贴、拼函证的时间省下来。数据全程在你自己的电脑上处理，不经任何服务器。
+      </p>
+
+      <div style="text-align:center;margin:26px 0">
+        <a class="btn btn-gold" href="tools/xunzheng-tool-v1.0.zip" download style="font-size:16px;padding:13px 36px">
+          ↓ 下载工具包（58.4 MB）
+        </a>
+        <p style="font-size:13px;color:#6b7488;margin-top:10px">
+          包内含：询证函生成工具.exe（v1.0，2026-09-14 构建）· 往来明细表模板 · 询证函模板 ×2
+        </p>
+      </div>
+
+      <h2>界面预览</h2>
+      <img src="assets/xunzheng-tool-preview.png" alt="询证函生成工具界面预览" style="border:1px solid var(--line);border-radius:8px;width:100%">
+
+      <h2>它能做什么</h2>
+      <ul>
+        <li>导入整理好的往来明细表（Excel），自动按<strong>被询证单位 + 会计科目</strong>归集</li>
+        <li>同一单位的多笔余额、多个科目<strong>自动汇总成一封函</strong>，含期初、期末余额与备注</li>
+        <li>基于 Word 模板生成，函件格式可在模板中自行调整（包内附两版模板）</li>
+        <li>纯本地运行：<strong>不需要联网，明细数据不出你的电脑</strong></li>
+      </ul>
+
+      <h2>使用步骤</h2>
+      <ol>
+        <li>下载工具包，<strong>解压到任意文件夹</strong>（别在压缩包里直接运行）；</li>
+        <li>打开「往来明细表模板.xlsx」，按模板列示的格式填写往来明细并保存；</li>
+        <li>运行「询证函生成工具.exe」，在「往来数据」页导入填好的明细表；</li>
+        <li>在「函件信息」页补全函件要素（如函证基准日、函件编号等）；</li>
+        <li>在「生成结果」页生成询证函 Word 文档，<strong>逐函核对后再打印、盖章、寄发</strong>。</li>
+      </ol>
+
+      <div class="callout callout-warn">
+        <span class="callout-title">首次运行提示「Windows 已保护你的电脑」怎么办</span>
+        <p>
+          本工具未购买代码签名证书（个人免费工具，证书费用不划算），Windows SmartScreen 会拦截未签名程序。
+          点击<strong>「更多信息」→「仍要运行」</strong>即可。请务必只从本页面下载工具包，
+          不要使用来路不明的转载版本。
+        </p>
+      </div>
+
+      <h2>更新日志</h2>
+      <ul>
+        <li><strong>v1.0</strong>（2026-09-14 构建，2026-09-22 发布）：首个公开版本。</li>
+      </ul>
+
+      <div class="disclaimer">
+        <strong>免责声明：</strong>本工具仅供审计工作辅助，其输出结果<strong>不能替代必要的审计程序与职业判断</strong>，
+        询证函发出前请务必逐函核对单位名称、科目、余额与函证基准日等信息。因使用本工具产生的任何后果由使用人自行承担。
+        工具运行过程中不收集、不上传任何数据。
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="assets/posts.js"></script>
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -41,6 +41,7 @@
     { href: "law.html",     text: "法律",   key: "law" }, 
     { href: "tax.html",     text: "税务",   key: "tax" },
     { href: "share.html",   text: "转载",   key: "share" },
+    { href: "tools.html",   text: "工具",   key: "tools" },
     { href: "about.html",   text: "关于",   key: "about" }
   ];
 
@@ -71,7 +72,7 @@
           "</div>" +
           '<div class="footer-col">' +
             "<h4>栏目</h4>" +
-            '<a href="finance.html">财务</a><a href="law.html">法律</a><a href="tax.html">税法</a><a href="share.html">转载</a>' +
+            '<a href="finance.html">财务</a><a href="law.html">法律</a><a href="tax.html">税法</a><a href="share.html">转载</a><a href="tools.html">工具</a>' +
           "</div>" +
           '<div class="footer-col">' +
             "<h4>关于</h4>" +
